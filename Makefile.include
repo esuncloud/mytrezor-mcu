@@ -31,6 +31,7 @@ CFLAGS   += $(OPTFLAGS) \
             -Wformat-security \
             -Werror \
             -fno-common \
+            -fno-stack-protector \
             -fno-exceptions \
             -fvisibility=internal \
             -ffunction-sections \

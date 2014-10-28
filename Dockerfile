@@ -8,7 +8,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FE324A81C208C89497E
 
 # install build tools and dependencies
 
-ENV GCC_ARM_VERSION 4-8-2014q2-0trusty10
+ENV GCC_ARM_VERSION 4.8.4.2014q3-0trusty11
 RUN apt-get install -y build-essential git gcc-arm-none-eabi=$GCC_ARM_VERSION python
 
 # clone the source code

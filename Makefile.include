@@ -31,7 +31,6 @@ CFLAGS   += $(OPTFLAGS) \
             -Wformat-security \
             -Werror \
             -fno-common \
-            -fno-stack-protector \
             -fno-exceptions \
             -fvisibility=internal \
             -ffunction-sections \
@@ -59,7 +58,6 @@ LDFLAGS  += --static \
             -lc \
             -lgcc \
             -lnosys \
-            -lssp \
             -Wl,--end-group \
             -L$(TOP_DIR) \
             -L$(TOOLCHAIN_DIR)/lib \

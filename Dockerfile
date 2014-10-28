@@ -13,14 +13,18 @@ RUN apt-get install -y build-essential git gcc-arm-none-eabi=$GCC_ARM_VERSION py
 
 # clone the source code
 
-RUN git clone https://github.com/libopencm3/libopencm3 && git clone https://github.com/trezor/trezor-mcu
+RUN git clone https://github.com/libopencm3/libopencm3 && git clone https://github.com/esuncloud/mytrezor-mcu
 
 # build libopencm3
 
 ENV LIBOPENCM3_GITREV f6b6d62ec5628ebb0602c466ee9fd7a6070ef1f0
 RUN cd libopencm3 && git checkout $LIBOPENCM3_GITREV && make
 
+# build the bootloader
+
+RUN cd mytrezor-mcu && git submodule update --init && make && cd bootloader && make
+
 # build the firmware
 
 ENV TREZOR_MCU_GITREV v1.2.1
-RUN cd trezor-mcu && git checkout $TREZOR_MCU_GITREV && git submodule update --init && make && cd firmware && make
+RUN cd mytrezor-mcu && git checkout $TREZOR_MCU_GITREV && git submodule update --init && make && cd firmware && make

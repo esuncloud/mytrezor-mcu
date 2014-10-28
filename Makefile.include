@@ -59,6 +59,7 @@ LDFLAGS  += --static \
             -lc \
             -lgcc \
             -lnosys \
+            -lssp \
             -Wl,--end-group \
             -L$(TOP_DIR) \
             -L$(TOOLCHAIN_DIR)/lib \
